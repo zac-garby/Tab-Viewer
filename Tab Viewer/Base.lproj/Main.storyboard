@@ -893,6 +893,9 @@ Gw
                                         <segment label="Tabs" tag="1"/>
                                     </segments>
                                 </segmentedCell>
+                                <connections>
+                                    <action selector="changeTabType:" target="acz-HC-JE5" id="LlH-aY-Lic"/>
+                                </connections>
                             </segmentedControl>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Zd-Rv-z78">
                                 <rect key="frame" x="650" y="494" width="19" height="22"/>
@@ -962,6 +965,7 @@ Gw
                     </view>
                     <connections>
                         <outlet property="arrayController" destination="eFa-eM-MbS" id="ks5-OL-WW5"/>
+                        <outlet property="tabTypeControl" destination="hZu-ud-rUa" id="cWv-NP-4NI"/>
                         <outlet property="tableView" destination="tE1-XY-iw3" id="zaD-Hh-ls4"/>
                         <outlet property="textView" destination="qdQ-q0-h9z" id="dj5-DH-Mqg"/>
                     </connections>

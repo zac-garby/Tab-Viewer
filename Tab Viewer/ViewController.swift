@@ -9,8 +9,9 @@
 import Cocoa
 
 class ViewController: NSViewController {
-    @IBOutlet var textView: NSTextView!
+    @IBOutlet weak var textView: NSTextView!
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var tabTypeControl: NSSegmentedControl!
     @IBOutlet var arrayController: NSArrayController!
     
     var font: NSFont = NSFont.userFixedPitchFont(ofSize: 11)!
@@ -53,6 +54,10 @@ class ViewController: NSViewController {
         
         return nil
     }
+    
+    @IBAction func changeTabType(_ sender: NSSegmentedControl) {
+        reloadTab()
+    }
 }
 
 extension ViewController: NSTextViewDelegate {
@@ -79,6 +84,10 @@ extension ViewController: NSTextViewDelegate {
 
 extension ViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(_ notification: Notification) {
+        reloadTab()
+    }
+    
+    func reloadTab() {
         let row = tableView.selectedRow
         guard let data = arrayController.content as? [Tab] else {
             return
@@ -88,8 +97,14 @@ extension ViewController: NSTableViewDelegate {
         
         let tab = data[row]
         
-        if let chords = tab.data_chords {
-            setText(value: chords)
+        if tabTypeControl.indexOfSelectedItem == 0 {
+            if let chords = tab.data_chords {
+                setText(value: chords)
+            }
+        } else {
+            if let tabString = tab.data_tab {
+                setText(value: tabString)
+            }
         }
     }
 }
