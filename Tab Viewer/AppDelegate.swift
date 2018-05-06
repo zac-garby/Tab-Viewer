@@ -10,9 +10,6 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -117,6 +114,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // If we got here, it is time to quit.
         return .terminateNow
     }
-
+    
+    /* @IBAction func importTab(_ sender: Any) {
+        let dialog = NSOpenPanel.init()
+        dialog.canChooseFiles = true
+        dialog.canChooseDirectories = true
+        dialog.allowsMultipleSelection = true
+        
+        let response = dialog.runModal()
+        if response.rawValue == 0 {
+            return
+        }
+        
+        let filenames = dialog.urls
+        for filename in filenames {
+            do {
+                try performImport(filename)
+            } catch {
+                // TODO: Handle error
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func performImport(_ path: URL) throws {
+        let contents = try String.init(contentsOf: path)
+        let context = persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Tab", in: context)
+        let newTab = NSManagedObject(entity: entity!, insertInto: context)
+    } */
 }
 
