@@ -13,9 +13,12 @@ class ImportFileViewController: NSViewController {
     @IBOutlet weak var chordsPathTextField: NSTextField!
     @IBOutlet weak var titleTextField: NSTextField!
     @IBOutlet weak var artistTextField: NSTextField!
+    @IBOutlet weak var errorLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        errorLabel.stringValue = ""
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -35,6 +38,16 @@ class ImportFileViewController: NSViewController {
     }
     
     @IBAction func importFiles(_ sender: Any) {
+        if titleTextField.stringValue.count == 0 {
+            errorLabel.stringValue = "You must specify a title"
+            return
+        }
+        
+        if artistTextField.stringValue.count == 0 {
+            errorLabel.stringValue = "You must specify the artist"
+            return
+        }
+        
         let tabPath = tabPathTextField.stringValue
         let chordsPath = chordsPathTextField.stringValue
         
@@ -54,7 +67,7 @@ class ImportFileViewController: NSViewController {
                 chords = "Nothing here..."
             }
         } catch {
-            print("Could not read file!")
+            errorLabel.stringValue = "Failed to read file"
             return
         }
         

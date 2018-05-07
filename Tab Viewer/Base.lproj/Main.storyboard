@@ -617,18 +617,28 @@ Gw
                                     <action selector="cancel:" target="q4d-YF-tWI" id="cVt-Ha-1t7"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="31S-j8-12E">
+                                <rect key="frame" x="20" y="23" width="177" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Potential error message" id="fZV-1X-Nj2">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="artistTextField" destination="wQF-a2-fiO" id="ThO-v8-Kdp"/>
                         <outlet property="chordsPathTextField" destination="KPa-vJ-Vbl" id="6za-xh-Fty"/>
+                        <outlet property="errorLabel" destination="31S-j8-12E" id="dYS-Me-xQX"/>
                         <outlet property="tabPathTextField" destination="0Ns-WP-L2A" id="Ugo-hK-yze"/>
                         <outlet property="titleTextField" destination="sFo-zf-dNk" id="04s-bd-3QV"/>
                     </connections>
                 </viewController>
                 <customObject id="ZJy-NH-TUY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="633" y="429"/>
+            <point key="canvasLocation" x="632.5" y="428.5"/>
         </scene>
         <!--Delete Popover View Controller-->
         <scene sceneID="S1w-f1-lvg">
