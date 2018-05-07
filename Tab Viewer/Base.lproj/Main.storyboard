@@ -460,7 +460,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="946" y="53"/>
+            <point key="canvasLocation" x="816" y="92"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -481,12 +481,12 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="74.5" y="249.5"/>
         </scene>
         <!--Import file-->
         <scene sceneID="tAd-Sq-kMq">
             <objects>
-                <viewController title="Import file" id="q4d-YF-tWI" sceneMemberID="viewController">
+                <viewController title="Import file" id="q4d-YF-tWI" customClass="ImportFileViewController" customModule="Tab_Viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="TXf-aZ-L9v">
                         <rect key="frame" x="0.0" y="0.0" width="373" height="235"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -555,6 +555,9 @@
 DQ
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="importFiles:" target="q4d-YF-tWI" id="BUo-aw-0GP"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wQF-a2-fiO">
                                 <rect key="frame" x="74" y="82" width="279" height="22"/>
@@ -572,6 +575,9 @@ DQ
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="selectChordsPath:" target="q4d-YF-tWI" id="mfb-dV-Uhv"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="keC-bX-KK3">
                                 <rect key="frame" x="328" y="190" width="29" height="26"/>
@@ -580,6 +586,9 @@ DQ
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="selectTabPath:" target="q4d-YF-tWI" id="gtC-PL-nEo"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ns-WP-L2A">
                                 <rect key="frame" x="74" y="192" width="250" height="22"/>
@@ -604,18 +613,99 @@ DQ
 Gw
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="cancel:" target="q4d-YF-tWI" id="cVt-Ha-1t7"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="artistTextField" destination="wQF-a2-fiO" id="ThO-v8-Kdp"/>
+                        <outlet property="chordsPathTextField" destination="KPa-vJ-Vbl" id="6za-xh-Fty"/>
+                        <outlet property="tabPathTextField" destination="0Ns-WP-L2A" id="Ugo-hK-yze"/>
+                        <outlet property="titleTextField" destination="sFo-zf-dNk" id="04s-bd-3QV"/>
+                    </connections>
                 </viewController>
                 <customObject id="ZJy-NH-TUY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678.5" y="354.5"/>
+            <point key="canvasLocation" x="633" y="429"/>
+        </scene>
+        <!--Delete Popover View Controller-->
+        <scene sceneID="S1w-f1-lvg">
+            <objects>
+                <viewController id="YVE-Ak-lmv" customClass="DeletePopoverViewController" customModule="Tab_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="gmC-WW-D5u">
+                        <rect key="frame" x="0.0" y="0.0" width="272" height="135"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aVa-Ht-cjG">
+                                <rect key="frame" x="18" y="98" width="199" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Are you sure you want to delete:" id="ZdG-FA-gfc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfb-Ng-fCI">
+                                <rect key="frame" x="30" y="74" width="98" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="The chords?" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zdD-Ng-ix5">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-kg-MSa">
+                                <rect key="frame" x="30" y="54" width="75" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="The tab?" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="K5G-sM-Yq4">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r4A-OL-G5i">
+                                <rect key="frame" x="178" y="13" width="80" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MeD-03-qJd">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="performDeletion:" target="YVE-Ak-lmv" id="WrZ-9X-FHS"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Giz-93-rON">
+                                <rect key="frame" x="96" y="13" width="82" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sJB-wU-ciP">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancel:" target="YVE-Ak-lmv" id="l6u-4Q-b7P"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="deleteChordsCheckbox" destination="cfb-Ng-fCI" id="aJa-ZL-raI"/>
+                        <outlet property="deleteTabCheckbox" destination="aFn-kg-MSa" id="SfC-T0-DDU"/>
+                    </connections>
+                </viewController>
+                <customObject id="faA-W5-lvA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711" y="882"/>
         </scene>
         <!--Import folder-->
         <scene sceneID="2ff-Jm-7Ov">
             <objects>
-                <viewController title="Import folder" id="OnH-Kz-wle" sceneMemberID="viewController">
+                <viewController title="Import folder" id="OnH-Kz-wle" customClass="ImportFolderViewController" customModule="Tab_Viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="dwN-W2-PnG">
                         <rect key="frame" x="0.0" y="0.0" width="373" height="385"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -645,7 +735,7 @@ Gw
                                     <string key="title">Enter a format by which to parse the filenames. This can automatically set the type (chords or tabs), artist, and title of each song.
 
 A format looks something like "{type}_{artist}_{title}", which would parse filenames which look like "chords_some-artist_the-song".</string>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -722,13 +812,16 @@ DQ
 Gw
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="cancel:" target="OnH-Kz-wle" id="wgS-CY-sEQ"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
                 </viewController>
                 <customObject id="jcc-Bu-2Pd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215.5" y="429.5"/>
+            <point key="canvasLocation" x="1017" y="504"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="w1U-hn-5x0">
@@ -907,6 +1000,9 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <segue destination="YVE-Ak-lmv" kind="popover" identifier="DeletePopover" popoverAnchorView="8Zd-Rv-z78" popoverBehavior="t" preferredEdge="maxY" id="7zK-EI-PiQ"/>
+                                </connections>
                             </button>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTB-6u-PUa">
                                 <rect key="frame" x="231" y="0.0" width="577" height="485"/>

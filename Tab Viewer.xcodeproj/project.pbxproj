@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00513F7209FB1CE00F14EEE /* ImportFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00513F6209FB1CE00F14EEE /* ImportFileViewController.swift */; };
+		B00513FA209FB1E500F14EEE /* ImportFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00513F8209FB1E500F14EEE /* ImportFolderViewController.swift */; };
+		B00513FD209FB51500F14EEE /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00513FC209FB51500F14EEE /* Util.swift */; };
+		B011422D20A047CE00BBAF3F /* DeletePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011422C20A047CE00BBAF3F /* DeletePopoverViewController.swift */; };
 		B0F106AB209DE0C700F51CB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F106AA209DE0C700F51CB5 /* AppDelegate.swift */; };
 		B0F106AD209DE0C700F51CB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F106AC209DE0C700F51CB5 /* ViewController.swift */; };
 		B0F106B0209DE0C700F51CB5 /* Tab_Viewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0F106AE209DE0C700F51CB5 /* Tab_Viewer.xcdatamodeld */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B00513F6209FB1CE00F14EEE /* ImportFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFileViewController.swift; sourceTree = "<group>"; };
+		B00513F8209FB1E500F14EEE /* ImportFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFolderViewController.swift; sourceTree = "<group>"; };
+		B00513FC209FB51500F14EEE /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		B011422C20A047CE00BBAF3F /* DeletePopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePopoverViewController.swift; sourceTree = "<group>"; };
 		B0F106A7209DE0C700F51CB5 /* Tab Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tab Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F106AA209DE0C700F51CB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0F106AC209DE0C700F51CB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +108,10 @@
 			children = (
 				B0F106AA209DE0C700F51CB5 /* AppDelegate.swift */,
 				B0F106AC209DE0C700F51CB5 /* ViewController.swift */,
+				B00513F6209FB1CE00F14EEE /* ImportFileViewController.swift */,
+				B011422C20A047CE00BBAF3F /* DeletePopoverViewController.swift */,
+				B00513F8209FB1E500F14EEE /* ImportFolderViewController.swift */,
+				B00513FC209FB51500F14EEE /* Util.swift */,
 				B0F106B1209DE0D300F51CB5 /* Assets.xcassets */,
 				B0F106B3209DE0D300F51CB5 /* Main.storyboard */,
 				B0F106B6209DE0D300F51CB5 /* Info.plist */,
@@ -258,8 +270,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0F106AD209DE0C700F51CB5 /* ViewController.swift in Sources */,
+				B00513FD209FB51500F14EEE /* Util.swift in Sources */,
 				B0F106AB209DE0C700F51CB5 /* AppDelegate.swift in Sources */,
 				B0F106B0209DE0C700F51CB5 /* Tab_Viewer.xcdatamodeld in Sources */,
+				B00513FA209FB1E500F14EEE /* ImportFolderViewController.swift in Sources */,
+				B011422D20A047CE00BBAF3F /* DeletePopoverViewController.swift in Sources */,
+				B00513F7209FB1CE00F14EEE /* ImportFileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

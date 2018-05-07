@@ -15,6 +15,7 @@ class ViewController: NSViewController {
     @IBOutlet var arrayController: NSArrayController!
     
     var font: NSFont = NSFont.userFixedPitchFont(ofSize: 11)!
+    var selectedTabID: NSManagedObjectID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,9 @@ class ViewController: NSViewController {
         textView.isAutomaticDashSubstitutionEnabled = false
         textView.isAutomaticQuoteSubstitutionEnabled = false
         textView.isAutomaticSpellingCorrectionEnabled = false
+        
+        // Reload the tab to set selectedTabID
+        reloadTab()
     }
     
     // Fetches a list of tabs from the CoreData database
@@ -53,6 +57,18 @@ class ViewController: NSViewController {
         }
         
         return nil
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        guard let ident = segue.identifier else { return }
+        
+        if ident.rawValue == "DeletePopover" {
+            guard let destination = segue.destinationController as? DeletePopoverViewController else {
+                return
+            }
+            
+            destination.previous = self
+        }
     }
     
     @IBAction func changeTabType(_ sender: NSSegmentedControl) {
@@ -96,6 +112,7 @@ extension ViewController: NSTableViewDelegate {
         if !data.indices.contains(row) { return }
         
         let tab = data[row]
+        selectedTabID = tab.objectID
         
         if tabTypeControl.indexOfSelectedItem == 0 {
             if let chords = tab.data_chords {
