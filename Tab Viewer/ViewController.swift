@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     
     var font: NSFont = NSFont.userFixedPitchFont(ofSize: 11)!
     var selectedTabID: NSManagedObjectID?
+    var searchTerm: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,19 @@ class ViewController: NSViewController {
     // Fetches a list of tabs from the CoreData database
     func getTabs(from context: NSManagedObjectContext) -> [Tab]? {
         do {
-            return try context.fetch(Tab.fetchRequest())
+            if searchTerm == nil {
+                return try context.fetch(Tab.fetchRequest())
+            }
+            
+            let request: NSFetchRequest<Tab> = Tab.fetchRequest()
+            
+            // Either the title or the artist contains the searchTerm, case and
+            // diacritic insensitive.
+            request.predicate = NSPredicate(
+                format: "(title CONTAINS[cd] %@) OR (artist CONTAINS[cd] %@)",
+                argumentArray: [searchTerm!, searchTerm!])
+            
+            return try context.fetch(request)
         } catch {
             print("Fetching error, \(error)")
         }
@@ -97,6 +110,17 @@ class ViewController: NSViewController {
     
     @IBAction func changeTabType(_ sender: NSSegmentedControl) {
         reloadTab()
+    }
+    
+    @IBAction func search(_ sender: NSSearchField) {
+        if sender.stringValue.count == 0 {
+            searchTerm = nil
+        } else {
+            searchTerm = sender.stringValue
+        }
+        
+        reloadData()
+        tableView.selectRowIndexes(IndexSet(integer: 0), byExtendingSelection: false)
     }
 }
 

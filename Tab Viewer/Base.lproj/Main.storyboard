@@ -953,6 +953,9 @@ Gw
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </searchFieldCell>
+                                <connections>
+                                    <action selector="search:" target="acz-HC-JE5" id="xDc-lr-n0R"/>
+                                </connections>
                             </searchField>
                             <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="b42-0R-UNF">
                                 <rect key="frame" x="228" y="0.0" width="5" height="524"/>
