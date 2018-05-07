@@ -826,12 +826,21 @@ Gw
                                     <action selector="cancel:" target="OnH-Kz-wle" id="wgS-CY-sEQ"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gBG-kP-RFB">
+                                <rect key="frame" x="20" y="23" width="177" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Potential error message" id="IcG-5M-Qi2">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                 </viewController>
                 <customObject id="jcc-Bu-2Pd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1017" y="504"/>
+            <point key="canvasLocation" x="1016.5" y="503.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="w1U-hn-5x0">
