@@ -114,6 +114,7 @@ extension ViewController: NSTextViewDelegate {
             value: font as Any,
             range: NSMakeRange(0, textView.string.endIndex.encodedOffset)
         )
+        textView.isEditable = false
     }
     
     func setText(value: String) {
