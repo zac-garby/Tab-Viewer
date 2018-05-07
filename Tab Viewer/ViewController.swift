@@ -20,6 +20,12 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(reloadData),
+            name: NSNotification.Name(rawValue: "dataUpdated"),
+            object: nil)
+        
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -48,6 +54,13 @@ class ViewController: NSViewController {
         reloadTab()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: NSNotification.Name(rawValue: "dataUpdated"),
+            object: nil)
+    }
+    
     // Fetches a list of tabs from the CoreData database
     func getTabs(from context: NSManagedObjectContext) -> [Tab]? {
         do {
@@ -57,6 +70,17 @@ class ViewController: NSViewController {
         }
         
         return nil
+    }
+    
+    @objc func reloadData() {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        if let fetched = getTabs(from: context) {
+            arrayController.content = fetched
+        }
+        
+        tableView.reloadData()
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {

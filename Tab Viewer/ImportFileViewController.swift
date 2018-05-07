@@ -74,6 +74,8 @@ class ImportFileViewController: NSViewController {
             print("Could not save context!")
         }
         
+        NotificationCenter.default.post(name: NSNotification.Name("dataUpdated"), object: nil)
+        
         self.dismiss(nil)
     }
 }
