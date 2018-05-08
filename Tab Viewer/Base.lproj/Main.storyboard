@@ -75,7 +75,6 @@
                                                 <segue destination="OnH-Kz-wle" kind="modal" id="aK0-2R-IBh"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Delete" keyEquivalent="d" id="9Dv-df-poy"/>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                                         <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
                                             <connections>
