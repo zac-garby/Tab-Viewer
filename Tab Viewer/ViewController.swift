@@ -10,6 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var textView: NSTextView!
+    @IBOutlet weak var scrollView: NSScrollView!
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var tabTypeControl: NSSegmentedControl!
     @IBOutlet var arrayController: NSArrayController!
@@ -101,6 +102,14 @@ class ViewController: NSViewController {
         
         if ident.rawValue == "DeletePopover" {
             guard let destination = segue.destinationController as? DeletePopoverViewController else {
+                return
+            }
+            
+            destination.previous = self
+        }
+        
+        if ident.rawValue == "Autoscroll" {
+            guard let destination = segue.destinationController as? AutoscrollViewController else {
                 return
             }
             
