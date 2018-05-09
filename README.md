@@ -2,6 +2,8 @@
 
 A macOS native app for managing your library of guitar tabs.
 
+Download the latest version [here](https://github.com/zac-garby/Tab-Viewer/releases)!
+
 ![](screenshot.png)
 
 Features:
