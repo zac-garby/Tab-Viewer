@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -1063,20 +1064,6 @@ Gw
                                     <action selector="changeTabType:" target="acz-HC-JE5" id="LlH-aY-Lic"/>
                                 </connections>
                             </segmentedControl>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Zd-Rv-z78">
-                                <rect key="frame" x="650" y="494" width="19" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="19" id="7tr-5R-b9G"/>
-                                    <constraint firstAttribute="height" constant="22" id="Asz-ER-lFz"/>
-                                </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarDeleteTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="2zj-OX-fYo">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="YVE-Ak-lmv" kind="popover" identifier="DeletePopover" popoverAnchorView="8Zd-Rv-z78" popoverBehavior="t" preferredEdge="maxY" id="7zK-EI-PiQ"/>
-                                </connections>
-                            </button>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTB-6u-PUa">
                                 <rect key="frame" x="231" y="0.0" width="577" height="485"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="dnb-fO-zH4">
@@ -1106,23 +1093,51 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-4J-1UV">
-                                <rect key="frame" x="623" y="494" width="19" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="19" id="E6L-s4-loP"/>
-                                    <constraint firstAttribute="height" constant="22" id="uQM-tf-Z2s"/>
-                                </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarGoDownTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="fDq-hr-rfV">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="W9d-IE-KAW" kind="show" identifier="Autoscroll" id="VVs-W3-BBq"/>
-                                </connections>
-                            </button>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CsB-g9-e2z" userLabel="Controls">
+                                <rect key="frame" x="623" y="494" width="46" height="22"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-4J-1UV">
+                                        <rect key="frame" x="0.0" y="0.0" width="19" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="19" id="E6L-s4-loP"/>
+                                            <constraint firstAttribute="height" constant="22" id="uQM-tf-Z2s"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarGoDownTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="fDq-hr-rfV">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <segue destination="W9d-IE-KAW" kind="show" identifier="Autoscroll" id="VVs-W3-BBq"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Zd-Rv-z78">
+                                        <rect key="frame" x="27" y="0.0" width="19" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="19" id="7tr-5R-b9G"/>
+                                            <constraint firstAttribute="height" constant="22" id="Asz-ER-lFz"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarDeleteTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="2zj-OX-fYo">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <segue destination="YVE-Ak-lmv" kind="popover" identifier="DeletePopover" popoverAnchorView="8Zd-Rv-z78" popoverBehavior="t" preferredEdge="maxY" id="7zK-EI-PiQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="b42-0R-UNF" firstAttribute="leading" secondItem="K6D-9E-RJY" secondAttribute="trailing" id="06H-Me-Yeo"/>
+                            <constraint firstItem="CsB-g9-e2z" firstAttribute="leading" secondItem="ZLM-yu-Wgi" secondAttribute="trailing" constant="8" id="0vv-D5-OQa"/>
                             <constraint firstAttribute="trailing" secondItem="rTB-6u-PUa" secondAttribute="trailing" id="1WZ-yr-fnn"/>
                             <constraint firstItem="rTB-6u-PUa" firstAttribute="leading" secondItem="b42-0R-UNF" secondAttribute="trailing" id="7ks-1N-lKy"/>
                             <constraint firstItem="b42-0R-UNF" firstAttribute="top" secondItem="l4d-Ad-iJH" secondAttribute="top" id="7yK-Fi-DS9"/>
@@ -1130,20 +1145,16 @@ Gw
                             <constraint firstItem="ZLM-yu-Wgi" firstAttribute="leading" secondItem="b42-0R-UNF" secondAttribute="trailing" constant="10" id="DQ4-JH-EAP"/>
                             <constraint firstAttribute="bottom" secondItem="b42-0R-UNF" secondAttribute="bottom" id="E4X-fH-BuV"/>
                             <constraint firstItem="K6D-9E-RJY" firstAttribute="leading" secondItem="l4d-Ad-iJH" secondAttribute="leading" id="EoJ-E8-kvr"/>
-                            <constraint firstItem="LBF-4J-1UV" firstAttribute="top" secondItem="l4d-Ad-iJH" secondAttribute="top" constant="8" id="HL0-QH-0TD"/>
-                            <constraint firstItem="8Zd-Rv-z78" firstAttribute="leading" secondItem="LBF-4J-1UV" secondAttribute="trailing" constant="8" id="Q4s-Wl-9Tp"/>
                             <constraint firstItem="P17-Yi-MsS" firstAttribute="leading" secondItem="l4d-Ad-iJH" secondAttribute="leading" constant="230" id="QJB-cZ-ybr"/>
-                            <constraint firstItem="LBF-4J-1UV" firstAttribute="leading" secondItem="ZLM-yu-Wgi" secondAttribute="trailing" constant="8" id="SJA-N5-0Y3"/>
-                            <constraint firstItem="hZu-ud-rUa" firstAttribute="leading" secondItem="8Zd-Rv-z78" secondAttribute="trailing" constant="8" id="ShL-8t-9IR"/>
                             <constraint firstAttribute="bottom" secondItem="K6D-9E-RJY" secondAttribute="bottom" id="VF5-tg-xmc"/>
                             <constraint firstItem="nbT-qf-GvU" firstAttribute="top" secondItem="l4d-Ad-iJH" secondAttribute="top" constant="8" id="YGz-en-al6"/>
                             <constraint firstItem="rTB-6u-PUa" firstAttribute="top" secondItem="P17-Yi-MsS" secondAttribute="bottom" id="ZCA-Ve-6Tu"/>
-                            <constraint firstItem="8Zd-Rv-z78" firstAttribute="top" secondItem="l4d-Ad-iJH" secondAttribute="top" constant="8" id="ca7-Q9-N0b"/>
                             <constraint firstAttribute="trailing" secondItem="hZu-ud-rUa" secondAttribute="trailing" constant="8" id="fpx-rN-twt"/>
                             <constraint firstItem="nbT-qf-GvU" firstAttribute="leading" secondItem="l4d-Ad-iJH" secondAttribute="leading" constant="8" id="mlD-2E-dAH"/>
+                            <constraint firstItem="hZu-ud-rUa" firstAttribute="leading" secondItem="CsB-g9-e2z" secondAttribute="trailing" constant="8" id="nEM-vW-6aN"/>
+                            <constraint firstItem="CsB-g9-e2z" firstAttribute="top" secondItem="l4d-Ad-iJH" secondAttribute="top" constant="8" id="o2W-vH-6yl"/>
                             <constraint firstAttribute="bottom" secondItem="rTB-6u-PUa" secondAttribute="bottom" id="oKP-fh-BSc"/>
-                            <constraint firstItem="P17-Yi-MsS" firstAttribute="top" secondItem="8Zd-Rv-z78" secondAttribute="bottom" constant="8" id="oQe-9K-Wle"/>
-                            <constraint firstItem="P17-Yi-MsS" firstAttribute="top" secondItem="LBF-4J-1UV" secondAttribute="bottom" constant="8" id="s6l-7U-3TP"/>
+                            <constraint firstItem="P17-Yi-MsS" firstAttribute="top" secondItem="CsB-g9-e2z" secondAttribute="bottom" constant="8" id="sLK-Kk-pcE"/>
                             <constraint firstItem="ZLM-yu-Wgi" firstAttribute="top" secondItem="l4d-Ad-iJH" secondAttribute="top" constant="11" id="v0X-r7-Lkw"/>
                             <constraint firstAttribute="trailing" secondItem="P17-Yi-MsS" secondAttribute="trailing" id="x3V-Wu-QX6"/>
                             <constraint firstItem="K6D-9E-RJY" firstAttribute="top" secondItem="nbT-qf-GvU" secondAttribute="bottom" constant="8" id="yYi-yb-oFJ"/>
