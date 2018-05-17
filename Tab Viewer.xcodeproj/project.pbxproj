@@ -12,6 +12,7 @@
 		B00513FD209FB51500F14EEE /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00513FC209FB51500F14EEE /* Util.swift */; };
 		B011422D20A047CE00BBAF3F /* DeletePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011422C20A047CE00BBAF3F /* DeletePopoverViewController.swift */; };
 		B02BB1B120A09E280007F7B6 /* AutoscrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02BB1B020A09E280007F7B6 /* AutoscrollViewController.swift */; };
+		B03AC3BC20A5F5100067C40A /* CouldNotImportDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03AC3BB20A5F5100067C40A /* CouldNotImportDialog.swift */; };
 		B0F106AB209DE0C700F51CB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F106AA209DE0C700F51CB5 /* AppDelegate.swift */; };
 		B0F106AD209DE0C700F51CB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F106AC209DE0C700F51CB5 /* ViewController.swift */; };
 		B0F106B0209DE0C700F51CB5 /* Tab_Viewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0F106AE209DE0C700F51CB5 /* Tab_Viewer.xcdatamodeld */; };
@@ -44,6 +45,7 @@
 		B00513FC209FB51500F14EEE /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		B011422C20A047CE00BBAF3F /* DeletePopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePopoverViewController.swift; sourceTree = "<group>"; };
 		B02BB1B020A09E280007F7B6 /* AutoscrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoscrollViewController.swift; sourceTree = "<group>"; };
+		B03AC3BB20A5F5100067C40A /* CouldNotImportDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouldNotImportDialog.swift; sourceTree = "<group>"; };
 		B05E7FF720A349690031923E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0F106A7209DE0C700F51CB5 /* Tab Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tab Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F106AA209DE0C700F51CB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				B011422C20A047CE00BBAF3F /* DeletePopoverViewController.swift */,
 				B00513F8209FB1E500F14EEE /* ImportFolderViewController.swift */,
 				B02BB1B020A09E280007F7B6 /* AutoscrollViewController.swift */,
+				B03AC3BB20A5F5100067C40A /* CouldNotImportDialog.swift */,
 				B00513FC209FB51500F14EEE /* Util.swift */,
 				B0F106B1209DE0D300F51CB5 /* Assets.xcassets */,
 				B0F106B3209DE0D300F51CB5 /* Main.storyboard */,
@@ -276,6 +279,7 @@
 			files = (
 				B02BB1B120A09E280007F7B6 /* AutoscrollViewController.swift in Sources */,
 				B0F106AD209DE0C700F51CB5 /* ViewController.swift in Sources */,
+				B03AC3BC20A5F5100067C40A /* CouldNotImportDialog.swift in Sources */,
 				B00513FD209FB51500F14EEE /* Util.swift in Sources */,
 				B0F106AB209DE0C700F51CB5 /* AppDelegate.swift in Sources */,
 				B0F106B0209DE0C700F51CB5 /* Tab_Viewer.xcdatamodeld in Sources */,

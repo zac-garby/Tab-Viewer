@@ -32,3 +32,35 @@ func selectFile(title: String, files: Bool, dirs: Bool) -> URL? {
     
     return urls[0]
 }
+
+extension String {
+    subscript (i: Int) -> Character {
+        return self[index(startIndex, offsetBy: i)]
+    }
+}
+
+func readFile(_ path: URL) -> String? {
+    let encodings: [String.Encoding] = [.utf8, .isoLatin1]
+    
+    for encoding in encodings {
+        do {
+            return try String(contentsOf: path, encoding: encoding)
+        } catch {
+            continue
+        }
+    }
+    
+    return nil
+}
+
+func songExists(title: String, artist: String, in context: NSManagedObjectContext) -> Bool {
+    let request: NSFetchRequest<Tab> = Tab.fetchRequest()
+    request.predicate = NSPredicate(format: "(title = %@) AND (artist = %@)", title, artist)
+    
+    do {
+        let result = try context.fetch(request)
+        return result.count > 0
+    } catch {
+        return false
+    }
+}
