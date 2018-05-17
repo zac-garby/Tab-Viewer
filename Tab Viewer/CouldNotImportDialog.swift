@@ -12,6 +12,10 @@ class CouldNotImportDialog: NSViewController {
     @IBOutlet weak var filenameLabel: NSTextField!
     var filename: String!
     
+    override func viewWillAppear() {
+        view.window?.styleMask.remove(.resizable)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

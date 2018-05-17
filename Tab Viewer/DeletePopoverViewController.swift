@@ -14,6 +14,10 @@ class DeletePopoverViewController: NSViewController {
     
     var previous: ViewController?
     
+    override func viewWillAppear() {
+        view.window?.styleMask.remove(.resizable)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

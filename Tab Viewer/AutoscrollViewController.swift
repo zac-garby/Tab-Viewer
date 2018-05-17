@@ -16,6 +16,10 @@ class AutoscrollViewController: NSViewController {
     var previous: ViewController?
     var timer: Timer?
     
+    override func viewWillAppear() {
+        view.window?.styleMask.remove(.resizable)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

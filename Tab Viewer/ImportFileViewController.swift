@@ -15,6 +15,10 @@ class ImportFileViewController: NSViewController {
     @IBOutlet weak var artistTextField: NSTextField!
     @IBOutlet weak var errorLabel: NSTextField!
     
+    override func viewWillAppear() {
+        view.window?.styleMask.remove(.resizable)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
