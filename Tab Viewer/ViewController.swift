@@ -167,7 +167,7 @@ extension ViewController: NSTableViewDelegate {
     
     func reloadTab() {
         let row = tableView.selectedRow
-        guard let data = arrayController.content as? [Tab] else {
+        guard let data = arrayController.arrangedObjects as? [Tab] else {
             return
         }
         
