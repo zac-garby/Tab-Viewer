@@ -64,7 +64,7 @@ class ImportFolderViewController: NSViewController {
             
             if !FileManager.default.fileExists(atPath: url.path) {
                 let alert = NSAlert()
-                alert.messageText = "Could not open \(url.lastPathComponent)"
+                alert.messageText = "No file exists at \(url.lastPathComponent)"
                 alert.runModal()
                 continue
             }
