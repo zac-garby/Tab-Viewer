@@ -1127,13 +1127,13 @@ Gw
                         <rect key="frame" x="0.0" y="0.0" width="808" height="524"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6D-9E-RJY">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6D-9E-RJY">
                                 <rect key="frame" x="0.0" y="0.0" width="230" height="485"/>
                                 <clipView key="contentView" drawsBackground="NO" id="OHR-kG-iIj">
                                     <rect key="frame" x="0.0" y="0.0" width="230" height="485"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="tE1-XY-iw3">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="28" viewBased="YES" id="tE1-XY-iw3">
                                             <rect key="frame" x="0.0" y="0.0" width="230" height="485"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -1156,12 +1156,11 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="fG0-sD-nXB">
-                                                            <rect key="frame" x="1" y="1" width="227" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="227" height="28"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lf-Lp-f9z">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="227" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="0lf-Lp-f9z">
+                                                                    <rect key="frame" x="6" y="6" width="221" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="riQ-1H-HRi">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1172,6 +1171,11 @@ Gw
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="0lf-Lp-f9z" firstAttribute="centerY" secondItem="fG0-sD-nXB" secondAttribute="centerY" id="MuU-pN-0Uf"/>
+                                                                <constraint firstAttribute="trailing" secondItem="0lf-Lp-f9z" secondAttribute="trailing" constant="2" id="mc5-Zn-bhg"/>
+                                                                <constraint firstItem="0lf-Lp-f9z" firstAttribute="leading" secondItem="fG0-sD-nXB" secondAttribute="leading" constant="8" id="tbT-E9-K3O"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="0lf-Lp-f9z" id="0iS-WW-gcT"/>
                                                             </connections>
@@ -1195,7 +1199,7 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="kUj-Xi-9eB">
-                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <rect key="frame" x="-100" y="-100" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1333,11 +1337,15 @@ Gw
                                     <constraint firstAttribute="width" constant="231" id="Sdp-44-3y7"/>
                                 </constraints>
                             </box>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="fyh-wv-iGO">
+                                <rect key="frame" x="230" y="465" width="578" height="4"/>
+                            </box>
                         </subviews>
                         <constraints>
                             <constraint firstItem="b42-0R-UNF" firstAttribute="leading" secondItem="K6D-9E-RJY" secondAttribute="trailing" id="06H-Me-Yeo"/>
                             <constraint firstItem="CsB-g9-e2z" firstAttribute="leading" secondItem="ZLM-yu-Wgi" secondAttribute="trailing" constant="8" id="0vv-D5-OQa"/>
                             <constraint firstAttribute="trailing" secondItem="rTB-6u-PUa" secondAttribute="trailing" id="1WZ-yr-fnn"/>
+                            <constraint firstItem="rTB-6u-PUa" firstAttribute="top" secondItem="fyh-wv-iGO" secondAttribute="bottom" id="2Aa-r7-Bim"/>
                             <constraint firstItem="rTB-6u-PUa" firstAttribute="leading" secondItem="b42-0R-UNF" secondAttribute="trailing" id="7ks-1N-lKy"/>
                             <constraint firstItem="b42-0R-UNF" firstAttribute="top" secondItem="l4d-Ad-iJH" secondAttribute="top" id="7yK-Fi-DS9"/>
                             <constraint firstItem="hZu-ud-rUa" firstAttribute="top" secondItem="l4d-Ad-iJH" secondAttribute="top" constant="8" id="7ya-BE-VAP"/>
@@ -1345,6 +1353,7 @@ Gw
                             <constraint firstAttribute="bottom" secondItem="b42-0R-UNF" secondAttribute="bottom" id="E4X-fH-BuV"/>
                             <constraint firstItem="K6D-9E-RJY" firstAttribute="leading" secondItem="l4d-Ad-iJH" secondAttribute="leading" id="EoJ-E8-kvr"/>
                             <constraint firstItem="rTB-6u-PUa" firstAttribute="top" secondItem="pdR-nI-uhV" secondAttribute="bottom" constant="8" id="H9O-W7-7Dj"/>
+                            <constraint firstItem="fyh-wv-iGO" firstAttribute="leading" secondItem="l4d-Ad-iJH" secondAttribute="leading" constant="230" id="L1v-iK-8mp"/>
                             <constraint firstItem="K6D-9E-RJY" firstAttribute="top" secondItem="P8m-bt-xPc" secondAttribute="bottom" id="Lyl-g5-Ayp"/>
                             <constraint firstAttribute="trailing" secondItem="pdR-nI-uhV" secondAttribute="trailing" constant="8" id="RJA-sC-Sf6"/>
                             <constraint firstItem="P8m-bt-xPc" firstAttribute="top" secondItem="nbT-qf-GvU" secondAttribute="bottom" constant="8" id="Tdu-Gi-p4c"/>
@@ -1359,6 +1368,8 @@ Gw
                             <constraint firstAttribute="bottom" secondItem="rTB-6u-PUa" secondAttribute="bottom" id="oKP-fh-BSc"/>
                             <constraint firstItem="P8m-bt-xPc" firstAttribute="leading" secondItem="l4d-Ad-iJH" secondAttribute="leading" id="ohj-c3-DFd"/>
                             <constraint firstItem="ZLM-yu-Wgi" firstAttribute="top" secondItem="l4d-Ad-iJH" secondAttribute="top" constant="11" id="v0X-r7-Lkw"/>
+                            <constraint firstItem="fyh-wv-iGO" firstAttribute="top" secondItem="pdR-nI-uhV" secondAttribute="bottom" constant="8" id="vTd-g3-qhD"/>
+                            <constraint firstAttribute="trailing" secondItem="fyh-wv-iGO" secondAttribute="trailing" id="xOZ-bn-UDA"/>
                             <constraint firstItem="K6D-9E-RJY" firstAttribute="top" secondItem="nbT-qf-GvU" secondAttribute="bottom" constant="9" id="yYi-yb-oFJ"/>
                         </constraints>
                     </view>
