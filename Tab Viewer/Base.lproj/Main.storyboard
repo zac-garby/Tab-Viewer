@@ -888,14 +888,14 @@ DQ
                 </viewController>
                 <customObject id="Gfg-JF-P03" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180.5" y="923.5"/>
+            <point key="canvasLocation" x="1185" y="924"/>
         </scene>
         <!--Import folder-->
         <scene sceneID="2ff-Jm-7Ov">
             <objects>
                 <viewController title="Import folder" id="OnH-Kz-wle" customClass="ImportFolderViewController" customModule="Tab_Viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="dwN-W2-PnG">
-                        <rect key="frame" x="0.0" y="0.0" width="701" height="347"/>
+                        <rect key="frame" x="0.0" y="0.0" width="709" height="347"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ho-gl-fEM">
@@ -955,17 +955,8 @@ A format looks something like "$type_$artist_$title", which would parse filename
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xtN-eg-FK8">
-                                <rect key="frame" x="398" y="227" width="145" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="For non-matching files," id="l8q-a0-ybF">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ojf-te-W0C">
-                                <rect key="frame" x="545" y="221" width="82" height="26"/>
+                                <rect key="frame" x="580" y="225" width="96" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="Ask me" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="QgC-dG-IOZ" id="zzN-s1-SvA">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -987,16 +978,8 @@ A format looks something like "$type_$artist_$title", which would parse filename
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZcO-YM-lBU">
-                                <rect key="frame" x="398" y="271" width="145" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Don't re-import files" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="iY6-Gh-Y98">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSg-6B-jU9">
-                                <rect key="frame" x="398" y="251" width="154" height="18"/>
+                                <rect key="frame" x="398" y="271" width="154" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Remove file extension" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="NIY-jv-Tpg">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1107,6 +1090,15 @@ Gw
                                 <rect key="frame" x="20" y="21" width="503" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xtN-eg-FK8">
+                                <rect key="frame" x="398" y="231" width="178" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="For non-matching filenames," id="l8q-a0-ybF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -1116,7 +1108,6 @@ Gw
                         <outlet property="defaultTypePopup" destination="5cy-td-pNJ" id="NtP-r8-OLG"/>
                         <outlet property="filenameFormatTextField" destination="6K1-l5-wYu" id="XtO-ls-v6O"/>
                         <outlet property="folderPath" destination="4Ho-gl-fEM" id="gLM-4b-nNT"/>
-                        <outlet property="noDupCheck" destination="ZcO-YM-lBU" id="cqY-FR-NFF"/>
                         <outlet property="nonMatchBehaviourDropdown" destination="ojf-te-W0C" id="qnV-C0-Tyw"/>
                         <outlet property="progressBar" destination="7ho-RK-M5H" id="0wb-Il-JUD"/>
                         <outlet property="removeExtCheck" destination="GSg-6B-jU9" id="89D-TM-is8"/>
@@ -1126,7 +1117,7 @@ Gw
                 </viewController>
                 <customObject id="jcc-Bu-2Pd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180.5" y="484.5"/>
+            <point key="canvasLocation" x="1184.5" y="484.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="w1U-hn-5x0">

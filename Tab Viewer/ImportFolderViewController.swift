@@ -15,7 +15,6 @@ class ImportFolderViewController: NSViewController {
     @IBOutlet weak var filenameFormatTextField: NSTextField!
     @IBOutlet weak var replacePunctCheck: NSButton!
     @IBOutlet weak var autoCapCheck: NSButton!
-    @IBOutlet weak var noDupCheck: NSButton!
     @IBOutlet weak var removeExtCheck: NSButton!
     @IBOutlet weak var nonMatchBehaviourDropdown: NSPopUpButton!
     @IBOutlet weak var progressBar: NSProgressIndicator!
@@ -53,10 +52,12 @@ class ImportFolderViewController: NSViewController {
             return
         }
         
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
         progressBar.isHidden = false
         progressBar.maxValue = Double(files.count)
         
-        var allData: [Data] = []
         
         for file in files {
             let url = URL(fileURLWithPath: file)
@@ -69,13 +70,22 @@ class ImportFolderViewController: NSViewController {
                 continue
             }
             
-            var (data, reason) = importFile(url, removeExtension: removeExtCheck.state == .on)
+            let (data, reason) = importFile(url, removeExtension: removeExtCheck.state == .on)
             if data != nil {
-                applyTransformations(&data!,
+                var parsed = data!
+                applyTransformations(&parsed,
                                      removePunctuation: replacePunctCheck.state == .on,
                                      autoCapitalise: autoCapCheck.state == .on)
                 
-                allData.append(data!)
+                do {
+                    try addSong(title: parsed.title,
+                                artist: parsed.artist,
+                                type: parsed.type,
+                                content: parsed.data,
+                                in: context)
+                } catch {
+                    print("could not add song")
+                }
             } else {
                 print("could not import \(url.path) due to a problem with: \(String(describing: reason))")
                 performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "CouldNotImport"), sender: self)
@@ -84,9 +94,16 @@ class ImportFolderViewController: NSViewController {
             progressBar.doubleValue += 1
         }
         
-        print(allData)
-        
         progressBar.isHidden = true
+        
+        do {
+            try context.save()
+        } catch {
+            print("an error occured while saving the context")
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("dataUpdated"), object: nil)
+        self.dismiss(nil)
     }
     
     func getFiles(in path: String) -> [String]? {

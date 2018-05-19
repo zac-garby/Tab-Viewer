@@ -55,12 +55,44 @@ func readFile(_ path: URL) -> String? {
 
 func songExists(title: String, artist: String, in context: NSManagedObjectContext) -> Bool {
     let request: NSFetchRequest<Tab> = Tab.fetchRequest()
-    request.predicate = NSPredicate(format: "(title = %@) AND (artist = %@)", title, artist)
+    request.predicate = NSPredicate(
+        format: "(title LIKE[cd] %@) AND (artist LIKE[cd] %@)",
+        argumentArray: [title, artist])
     
     do {
         let result = try context.fetch(request)
         return result.count > 0
     } catch {
+        print("error: \(error)")
         return false
+    }
+}
+
+// adds a song to the database. Won't save the context, so do that yourself
+func addSong(title: String, artist: String, type: String, content: String, in context: NSManagedObjectContext) throws {
+    let request: NSFetchRequest<Tab> = Tab.fetchRequest()
+    request.predicate = NSPredicate(
+        format: "(title LIKE[cd] %@) AND (artist LIKE[cd] %@)",
+        argumentArray: [title, artist, type])
+    let result = try context.fetch(request)
+    
+    var tab: NSManagedObject
+    
+    if result.count > 0 {
+        tab = result[0]
+    } else {
+        let entity = NSEntityDescription.entity(forEntityName: "Tab", in: context)
+        tab = NSManagedObject(entity: entity!, insertInto: context)
+    }
+    
+    tab.setValue(title, forKey: "title")
+    tab.setValue(artist, forKey: "artist")
+    
+    if type == "chords" {
+        tab.setValue(content, forKey: "data_chords")
+        tab.setValue("Nothing here...", forKey: "data_tab")
+    } else {
+        tab.setValue(content, forKey: "data_tab")
+        tab.setValue("Nothing here...", forKey: "data_chords")
     }
 }
