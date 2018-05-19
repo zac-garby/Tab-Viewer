@@ -26,6 +26,10 @@ class AutoscrollViewController: NSViewController {
         startTimer()
     }
     
+    override func viewWillDisappear() {
+        timer?.invalidate()
+    }
+    
     func startTimer() {
         timer = Timer.scheduledTimer(
             withTimeInterval: TimeInterval(0.02),
@@ -45,7 +49,6 @@ class AutoscrollViewController: NSViewController {
     }
     
     @IBAction func cancel(_ sender: Any) {
-        timer?.invalidate()
         self.view.window?.close()
     }
     
