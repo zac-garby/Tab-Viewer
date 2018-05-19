@@ -54,6 +54,10 @@ class ViewController: NSViewController {
         
         // Reload the tab to set selectedTabID
         reloadTab()
+        
+        arrayController.sortDescriptors = [
+            NSSortDescriptor.init(key: "title", ascending: true)
+        ]
     }
     
     deinit {
